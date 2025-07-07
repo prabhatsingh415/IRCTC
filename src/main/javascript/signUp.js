@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
           // Handle both string and boolean
           console.log("Password set, redirecting...");
           form.reset();
-          window.location.href = "index.html";
+          window.location.href = "index.main";
         } else {
           console.error("❌ setPassword failed:", data.message);
         }

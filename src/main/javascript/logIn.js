@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (data.message === "Login successful") {
         alert("✅ Login successful!");
-        window.location.href = "index.html";
+        window.location.href = "index.main";
       } else {
         alert("❌ " + data.message);
       }

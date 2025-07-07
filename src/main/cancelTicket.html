@@ -3,9 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Us</title>
-
-    <link href="../css/output.css" rel="stylesheet" />
+    <title>Cancel Ticket</title>
+    <link href="css/output.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,11 +15,24 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
-    <link rel="icon" type="image/svg+xml" href="../images/logo.svg" />
+    <link rel="icon" type="image/svg+xml" href="images/logo.svg" />
   </head>
   <body
     class="bg-[url(../images/bg.avif)] bg-cover bg-center bg-fixed bg-no-repeat"
   >
+    <!-- Booking Loader Overlay -->
+    <div
+      id="bookingLoader"
+      class="fixed inset-0 z-40 hidden flex items-center justify-center bg-black/50 backdrop-blur-sm"
+    >
+      <div
+        class="w-16 h-16 border-4 border-t-yellow-400 border-gray-200 rounded-full animate-spin"
+      ></div>
+    </div>
+
+    <div
+      class="fixed inset-0 w-full h-full bg-gradient-to-b from-black/70 to-blue-900/50 -z-10"
+    ></div>
     <div
       class="fixed inset-0 w-full h-full bg-gradient-to-b from-black/70 to-blue-900/50 -z-10"
     ></div>
@@ -29,7 +41,7 @@
       <div id="navbar" class="flex items-center p-3 justify-between">
         <!-- Logo -->
         <div id="logo" class="flex flex-center">
-          <img src="../images/logo.svg" class="h-8 ml-2 md:h-12" />
+          <img src="images/logo.svg" class="h-8 ml-2 md:h-12" />
           <h1
             class="text-2xl font-extrabold tracking-tight text-yellow-400 hidden md:block md:ml-8"
           >
@@ -44,7 +56,7 @@
           onclick="handleMenu()"
         >
           <img
-            src="../images/bars-solid.svg"
+            src="images/bars-solid.svg"
             alt="navigation"
             class="h-8 md:invisible"
           />
@@ -85,13 +97,13 @@
         ></div>
         <div class="flex justify-between">
           <div id="logo">
-            <img src="../images/logo.svg" class="h-8 ml-2 md:h-12" />
+            <img src="images/logo.svg" class="h-8 ml-2 md:h-12" />
           </div>
           <button
             class="p-2 md:hidden transition-all duration-200 active:scale-90"
             onclick="handleMenu()"
           >
-            <img src="../images/cancel.png" alt="cancel" />
+            <img src="images/cancel.png" alt="cancel" />
           </button>
         </div>
         <div class="mt-[16px]">
@@ -113,64 +125,37 @@
         </div>
       </div>
     </header>
-    <main>
-      <section class="text-center py-16 px-4">
-        <h2 class="text-4xl font-bold text-yellow-400 mb-4">Connect With Me</h2>
-        <p class="text-lg text-gray-300 max-w-2xl mx-auto">
-          I'm the developer behind this IRCTC Ticket Booking project. Feel free
-          to reach out through the platforms below!
+    <main
+      class="min-h-screen bg-cover bg-center flex items-center justify-center"
+      style="background-image: url('your-background-image-path.jpg')"
+    >
+      <div
+        class="bg-gray-800 bg-opacity-25 p-10 rounded-2xl shadow-lg text-center max-w-xl w-full"
+      >
+        <h1 class="text-4xl md:text-5xl font-bold text-yellow-400 mb-6">
+          Cancel Your Journey
+        </h1>
+        <p class="text-white text-lg mb-10">
+          Enter your ticket ID below to cancel your booking quickly and easily.
         </p>
-      </section>
 
-      <!-- Contact Links Section -->
-      <section class="bg-gray-800 py-12 px-6">
-        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-          <!-- LinkedIn -->
-          <div class="bg-gray-700 p-6 rounded-2xl shadow-lg text-center">
-            <h3 class="text-yellow-300 text-xl font-semibold mb-2">LinkedIn</h3>
-            <a
-              href="https://www.linkedin.com/in/prabhat-singh-rj415"
-              target="_blank"
-              class="text-blue-400 hover:underline"
-              >prabhat Singh</a
-            >
-          </div>
-
-          <!-- GitHub -->
-          <div class="bg-gray-700 p-6 rounded-2xl shadow-lg text-center">
-            <h3 class="text-yellow-300 text-xl font-semibold mb-2">GitHub</h3>
-            <a
-              href="https://github.com/prabhatsingh415"
-              target="_blank"
-              class="text-blue-400 hover:underline"
-              >prabhatsingh415</a
-            >
-          </div>
-
-          <!-- Email -->
-          <div class="bg-gray-700 p-6 rounded-2xl shadow-lg text-center">
-            <h3 class="text-yellow-300 text-xl font-semibold mb-2">Email</h3>
-            <a
-              href="mailto:youremail@example.com"
-              class="text-blue-400 hover:underline"
-              >singh.prabhat.work@gmail.com</a
-            >
-          </div>
-
-          <!-- twitter -->
-          <div class="bg-gray-700 p-6 rounded-2xl shadow-lg text-center">
-            <h3 class="text-yellow-300 text-xl font-semibold mb-2">
-              X | Twitter
-            </h3>
-            <a
-              href="https://x.com/Prabhatsingh415"
-              target="_blank"
-              class="text-blue-400 hover:underline"
-              >Prabhatsingh415</a
-            >
-          </div>
-        </div>
-      </section>
+        <form class="space-y-6">
+          <input
+            id="ticketIdInput"
+            type="text"
+            placeholder="Enter Ticket ID"
+            class="w-full border border-yellow-400 text-yellow-500 bg-gray-900 h-14 rounded-lg px-4 mb-4 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+            required
+          />
+          <button
+            id="cancelBtn"
+            type="button"
+            class="w-full bg-yellow-400 my-4 text-black font-bold py-3 rounded-xl hover:bg-yellow-300 transition duration-300"
+          >
+            Cancel Ticket
+          </button>
+        </form>
+      </div>
     </main>
     <footer
       class="text-center py-4 bg-gray-900 text-gray-300 flex flex-wrap flex-col justify-center items-center"
@@ -182,22 +167,23 @@
       <div class="h-30 w-60 mt-16 grid grid-cols-3 gap-x-2 justify-center">
         <div class="">
           <a href="https://x.com/Prabhatsingh415?t=BTGdSlxO0-aWVmkqh-wK4w&s=08 "
-            ><img src="../images/X.png" alt="X"
+            ><img src="images/X.png" alt="X"
           /></a>
         </div>
         <div class="">
           <a href="https://github.com/prabhatsingh415"
-            ><img src="../images/github.png" alt="github"
+            ><img src="images/github.png" alt="github"
           /></a>
         </div>
         <div class="">
           <a
             href="https://www.linkedin.com/in/prabhat-singh-rj415?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app "
-            ><img src="../images/linkdin.png" alt="LinkedIn"
+            ><img src="images/linkdin.png" alt="LinkedIn"
           /></a>
         </div>
       </div>
     </footer>
   </body>
-  <script src="../javascript/header.js"></script>
+  <script src="javascript/header.js"></script>
+  <script src="javascript/cancelTicket.js"></script>
 </html>
