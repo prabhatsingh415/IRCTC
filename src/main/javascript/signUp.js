@@ -1,5 +1,27 @@
-console.log("SignUp script loaded ✅");
+// Grab modal elements once, reuse throughout
+const modal = document.getElementById("modal");
+const overlay = document.getElementById("modalOverlay");
+const modalMsg = document.getElementById("modalMessage");
+const btnClose = document.getElementById("modalClose");
+const btnOk = document.getElementById("modalOk");
 
+// Show the modal with a given message
+function showModal(message) {
+  modalMsg.textContent = message;
+  overlay.classList.remove("hidden"); // un‑blur and reveal overlay
+  modal.classList.remove("hidden"); // reveal centered modal
+}
+
+// Hide the modal and restore background
+function hideModal() {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+}
+
+// Close modal when user clicks OK
+btnOk.addEventListener("click", hideModal);
+
+// Ensure DOM is ready before accessing form elements
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM fully loaded");
   const form = document.getElementById("signupForm");
@@ -8,54 +30,51 @@ document.addEventListener("DOMContentLoaded", () => {
   const loader = document.getElementById("loader");
   const blurOverlay = document.getElementById("blurOverlay");
 
+  // If any critical element is missing, show an error and bail out
   if (!form || !otpSection || !passwordSection || !loader || !blurOverlay) {
-    console.error("❌ Missing elements:", {
-      form: !!form,
-      otpSection: !!otpSection,
-      passwordSection: !!passwordSection,
-      loader: !!loader,
-      blurOverlay: !!blurOverlay,
-    });
+    showModal("Something Went Wrong!");
     return;
   }
 
+  // Track which signup step we’re on
   let currentStep = "sendEmail";
 
+  // Toggle loader + blur overlay
   function showLoader(show) {
-    console.log("Toggling loader:", show);
     loader.classList.toggle("hidden", !show);
     blurOverlay.classList.toggle("hidden", !show);
   }
 
+  // Main form submission handler
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    console.log("🟡 Form submission started, step:", currentStep);
 
-    // Step-wise validation
+    // Client‑side validation per step
     if (currentStep === "sendEmail") {
       const userName = document.getElementById("username").value.trim();
       const userEmail = document.getElementById("email").value.trim();
       if (!userName || !userEmail) {
-        alert("Please enter both username and email.");
+        showModal("Please enter both username and email.");
         showLoader(false);
         return;
       }
     } else if (currentStep === "verifyCode") {
       const otpVal = document.getElementById("otp").value.trim();
       if (!otpVal) {
-        alert("Please enter the OTP.");
+        showModal("Please enter the OTP.");
         showLoader(false);
         return;
       }
     } else if (currentStep === "setPassword") {
       const pwd = document.getElementById("password").value.trim();
       if (!pwd) {
-        alert("Please enter a password.");
+        showModal("Please enter a password.");
         showLoader(false);
         return;
       }
     }
 
+    // Show loader while awaiting server
     showLoader(true);
     try {
       let res, data;
@@ -65,103 +84,79 @@ document.addEventListener("DOMContentLoaded", () => {
         credentials: "include",
       };
 
+      // Build request based on current step
       if (currentStep === "sendEmail") {
-        const userName = document.getElementById("username").value.trim();
-        const userEmail = document.getElementById("email").value.trim();
         const body = new URLSearchParams({
           step: "sendEmail",
-          userName,
-          userEmail,
+          userName: document.getElementById("username").value.trim(),
+          userEmail: document.getElementById("email").value.trim(),
         });
-        console.log("Sending email request:", { userName, userEmail });
         res = await fetch(
           "https://irctc-ticket-booking-app.onrender.com/SignUp",
-          {
-            ...commonOpts,
-            body,
-          }
+          { ...commonOpts, body }
         );
       } else if (currentStep === "verifyCode") {
-        const otpVal = document.getElementById("otp").value.trim();
         const body = new URLSearchParams({
           step: "verifyCode",
-          InputCode: otpVal,
+          InputCode: document.getElementById("otp").value.trim(),
         });
-        console.log("Verifying OTP:", otpVal);
         res = await fetch(
           "https://irctc-ticket-booking-app.onrender.com/SignUp",
-          {
-            ...commonOpts,
-            body,
-          }
+          { ...commonOpts, body }
         );
       } else if (currentStep === "setPassword") {
-        const pwd = document.getElementById("password").value.trim();
         const body = new URLSearchParams({
           step: "setPassword",
-          password: pwd,
+          password: document.getElementById("password").value.trim(),
         });
-        console.log("Setting password");
         res = await fetch(
           "https://irctc-ticket-booking-app.onrender.com/SignUp",
-          {
-            ...commonOpts,
-            body,
-          }
+          { ...commonOpts, body }
         );
       }
 
-      console.log("Fetch status:", res.status);
+      // Parse JSON response
       data = await res.json();
-      console.log("Fetch data:", data);
 
-      // Handle per step response
+      // Handle server response per step
       if (currentStep === "sendEmail") {
-        alert(data.message);
-        console.log(
-          "sendEmail response success:",
-          data.success,
-          typeof data.success
-        );
+        showModal(data.message);
         if (data.success === "true" || data.success === true) {
-          // Handle both string and boolean
-          console.log("Email sent, showing OTP section");
-          console.log("otpSection before:", otpSection.classList);
           otpSection.classList.remove("hidden");
-          console.log("otpSection after:", otpSection.classList);
           currentStep = "verifyCode";
         } else {
-          console.error("❌ sendEmail failed:", data.message);
+          showModal("Please enter a valid email address!");
         }
       } else if (currentStep === "verifyCode") {
-        alert(data.message);
         if (data.success === "true" || data.success === true) {
-          // Handle both string and boolean
-          console.log("OTP verified, showing password section");
           passwordSection.classList.remove("hidden");
           currentStep = "setPassword";
         } else {
-          console.error("❌ OTP failed:", data.message);
+          showModal("Invalid OTP. Please try again.");
           const otpInput = document.getElementById("otp");
           otpInput.value = "";
           otpInput.focus();
           passwordSection.classList.add("hidden");
         }
       } else if (currentStep === "setPassword") {
-        alert(data.message);
+        showModal(data.message);
         if (data.success === "true" || data.success === true) {
-          // Handle both string and boolean
-          console.log("Password set, redirecting...");
-          form.reset();
-          window.location.href = "index.main";
+          // On OK click (wired above), hide modal then redirect
+          btnOk.onclick = () => {
+            hideModal();
+            form.reset();
+            window.location.href = "BookTicket.html";
+          };
         } else {
-          console.error("❌ setPassword failed:", data.message);
+          btnOk.onclick = hideModal; // restore default close behavior
+          showModal(data.message);
         }
       }
     } catch (err) {
-      console.error("❌ Fetch error:", err);
-      alert("Something went wrong! Please try again.");
+      // Network/server error
+      showModal("Something went wrong! Please try again.");
     } finally {
+      // Always hide loader when done
       showLoader(false);
     }
   });
