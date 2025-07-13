@@ -1,4 +1,26 @@
 console.log("Login script loaded ✅");
+// Grab modal elements once, reuse throughout
+const modal = document.getElementById("modal");
+const overlay = document.getElementById("modalOverlay");
+const modalMsg = document.getElementById("modalMessage");
+const btnClose = document.getElementById("modalClose");
+const btnOk = document.getElementById("modalOk");
+
+// Show the modal with a given message
+function showModal(message) {
+  modalMsg.textContent = message;
+  overlay.classList.remove("hidden"); // un‑blur and reveal overlay
+  modal.classList.remove("hidden"); // reveal centered modal
+}
+
+// Hide the modal and restore background
+function hideModal() {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+}
+
+// Close modal when user clicks OK
+btnOk.addEventListener("click", hideModal);
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("form");
@@ -13,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   if (!form) {
-    console.error("❌ Login form not found!");
+    showModal("Something went wrong , Please try again later!");
     return;
   }
 
@@ -25,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const password = document.getElementById("password").value.trim();
 
     if (!email || !password) {
-      alert("Please enter both email and password.");
+      showModal("Please enter both email and password.");
       showLoader(false);
       return;
     }
@@ -47,14 +69,13 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("Login response:", data);
 
       if (data.message === "Login successful") {
-        alert("✅ Login successful!");
+        showModal("✅ Login successful!");
         window.location.href = "index.html";
       } else {
-        alert("❌ " + data.message);
+        showModal(data.message);
       }
     } catch (err) {
-      console.error("❌ Error during login:", err);
-      alert("Something went wrong. Please try again.");
+      showModal("Something went wrong. Please try again.");
     } finally {
       showLoader(false);
     }

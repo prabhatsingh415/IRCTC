@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="css/output.css" rel="stylesheet" />
+    <link href="../css/output.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/svg+xml" href="images/logo.svg" />
+    <link rel="icon" type="image/svg+xml" href="../images/logo.svg" />
     <title>login</title>
   </head>
   <body
@@ -24,7 +24,7 @@
       <div id="navbar" class="flex items-center p-3 justify-between">
         <!-- Logo -->
         <div id="logo" class="flex flex-center">
-          <img src="images/logo.svg" class="h-8 ml-2 md:h-12" />
+          <img src="../images/logo.svg" class="h-8 ml-2 md:h-12" />
           <h1
             class="text-2xl font-extrabold tracking-tight text-yellow-400 hidden md:block md:ml-8"
           >
@@ -39,7 +39,7 @@
           onclick="handleMenu()"
         >
           <img
-            src="images/bars-solid.svg"
+            src="../images/bars-solid.svg"
             alt="navigation"
             class="h-8 md:invisible"
           />
@@ -48,12 +48,12 @@
         <div id="links" class="hidden md:block mr-4">
           <nav class="flex gap-16">
             <a
-              href="index.html"
+              href="../index.html"
               class="hover:text-stone-400 text-lg font-extrabold text-yellow-400"
               >Home</a
             >
             <a
-              href="index.html#services"
+              href="../index.html#services"
               class="hover:text-stone-400 text-lg font-extrabold text-yellow-400"
               >Services</a
             >
@@ -80,28 +80,28 @@
         ></div>
         <div class="flex justify-between">
           <div id="logo">
-            <img src="images/logo.svg" class="h-8 ml-2 md:h-12" />
+            <img src="../images/logo.svg" class="h-8 ml-2 md:h-12" />
           </div>
           <button
             class="p-2 md:hidden transition-all duration-200 active:scale-90"
             onclick="handleMenu()"
           >
-            <img src="images/cancel.png" alt="cancel" />
+            <img src="../images/cancel.png" alt="cancel" />
           </button>
         </div>
         <div class="mt-[16px]">
           <a
-            href="index.html"
+            href="../index.html"
             class="hover:bg-gray-800 text-yellow-400 text-lg font-extrabold m-3 p-3 block rounded-lg active:bg-gray-400"
             >Home</a
           >
           <a
-            href="index.html"
+            href="../index.html"
             class="hover:bg-gray-800 text-yellow-400 text-lg font-extrabold m-3 p-3 block rounded-lg active:bg-gray-400"
             >About us</a
           >
           <a
-            href="index.html"
+            href="../index.html"
             class="hover:bg-gray-800 text-yellow-400 text-lg font-extrabold m-3 p-3 block rounded-lg active:bg-gray-400"
             >Contact us</a
           >
@@ -162,7 +162,7 @@
               type="submit"
               class="w-full py-2 bg-yellow-400 text-black font-semibold rounded-lg hover:bg-yellow-300 transition duration-300"
             >
-              Sign Up
+              Log In
             </button>
           </form>
         </div>
@@ -180,22 +180,49 @@
       <div class="h-30 w-60 mt-16 grid grid-cols-3 gap-x-2 justify-center">
         <div>
           <a href="https://x.com/Prabhatsingh415"
-            ><img src="images/X.png" alt="X"
+            ><img src="../images/X.png" alt="X"
           /></a>
         </div>
         <div>
           <a href="https://github.com/prabhatsingh415"
-            ><img src="images/github.png" alt="github"
+            ><img src="../images/github.png" alt="github"
           /></a>
         </div>
         <div>
           <a href="https://www.linkedin.com/in/prabhat-singh-rj415"
-            ><img src="images/linkdin.png" alt="LinkedIn"
+            ><img src="../images/linkdin.png" alt="LinkedIn"
           /></a>
         </div>
       </div>
     </footer>
-    <script src="javascript/header.js"></script>
-    <script src="javascript/logIn.js"></script>
+
+    <!-- Modal Overlay (background blur) -->
+    <div
+      id="modalOverlay"
+      class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden z-40"
+    ></div>
+
+    <!-- Modal Container -->
+    <div
+      id="modal"
+      class="fixed inset-0 flex items-center justify-center hidden z-50 px-4"
+    >
+      <!-- Modal Content -->
+      <div
+        class="bg-black/80 backdrop-blur-md text-yellow-400 rounded-2xl shadow-2xl p-6 w-full max-w-md min-w-[16rem] sm:w-auto sm:min-w-[12rem] mx-auto relative"
+      >
+        <div id="modalMessage" class="mb-6 text-center"></div>
+
+        <button
+          id="modalOk"
+          class="w-full py-2 bg-yellow-400 text-black font-semibold rounded-lg hover:bg-yellow-300 transition"
+        >
+          OK
+        </button>
+      </div>
+    </div>
+
+    <script src="../javascript/header.js"></script>
+    <script src="../javascript/logIn.js"></script>
   </body>
 </html>
