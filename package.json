@@ -4,9 +4,11 @@
   "build": "npm run build:css"
 },
   "dependencies": {
-    "@tailwindcss/cli": "^4.1.10"
-    
-  },
+  "tailwindcss": "^4.1.10",
+  "autoprefixer": "^10.4.0",
+  "postcss": "^8.4.6"
+}
+
   "devDependencies": {
      "tailwindcss": "^4.x.x",
   "postcss": "^8.x.x",
