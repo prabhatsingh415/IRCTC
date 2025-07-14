@@ -1,17 +1,11 @@
 {
-"scripts": {
-  "build:css": "tailwindcss -i ./public/css/input.css -o ./public/css/output.css --minify",
-  "build": "npm run build:css"
-},
-  "dependencies": {
-  "tailwindcss": "^4.1.10",
-  "autoprefixer": "^10.4.0",
-  "postcss": "^8.4.6"
-}
 
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.10"
+  },
   "devDependencies": {
-     "tailwindcss": "^4.x.x",
-  "postcss": "^8.x.x",
-  "autoprefixer": "^10.x.x"
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.11"
   }
 }

@@ -149,7 +149,7 @@ function showPopup(message, success = false) {
       <p class="mb-4">${message}</p>
       ${
         success
-          ? `<a href="../index.html" class="bg-yellow-400 text-black px-4 py-2 rounded-lg font-semibold hover:bg-yellow-300">Home</a>`
+          ? `<a href="index.html" class="bg-yellow-400 text-black px-4 py-2 rounded-lg font-semibold hover:bg-yellow-300">Home</a>`
           : `<button onclick="this.closest('div.fixed').remove()" class="mt-2 px-4 py-2 border border-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-black">OK</button>`
       }
     </div>`;

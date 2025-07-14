@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Book Your Train Ticket</title>
-    <link href="css/output.css" rel="stylesheet" />
+    <link href="output.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,7 +18,8 @@
     <link rel="icon" type="image/svg+xml" href="images/logo.svg" />
   </head>
   <body
-    class="bg-[url(../images/bg.avif)] bg-cover bg-center bg-fixed bg-no-repeat"
+    style="background-image: url('/public/images/bg.avif')"
+    class="bg-cover bg-center bg-fixed bg-no-repeat"
   >
     <div
       class="fixed inset-0 w-full h-full bg-gradient-to-b from-black/70 to-blue-900/50 -z-10"
@@ -77,7 +78,8 @@
 
       <div
         id="menu"
-        class="fixed bg-[url(../images/bg.avif)] bg-cover bg-center bg-fixed bg-no-repeat inset-0 p-3 md:hidden hidden"
+        style="background-image: url('/public/images/bg.avif')"
+        class="fixed bg-cover bg-center bg-fixed bg-no-repeat inset-0 p-3 md:hidden hidden"
       >
         <div
           class="fixed inset-0 w-full h-full bg-gradient-to-b from-black/70 to-blue-900/50 -z-10"
@@ -257,7 +259,7 @@
     </div>
 
     <!-- Scripts (at end so DOM elements exist) -->
-    <script src="javascript/header.js"></script>
-    <script src="javascript/BookTicket.js"></script>
+    <script src="header.js"></script>
+    <script src="BookTicket.js"></script>
   </body>
 </html>
