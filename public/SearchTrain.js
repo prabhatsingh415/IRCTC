@@ -172,6 +172,7 @@ function presentData(data) {
     row.innerHTML = `
       <td class="px-4 py-2 font-semibold">${train.trainName}</td>
       <td class="px-4 py-2">${train.trainType}</td>
+      <td class="px-4 py-2">${train.trainId}</td>
       <td class="px-4 py-2">${train.sourceStation} → ${train.destinationStation}</td>
       <td class="px-4 py-2">${train.departureTime}</td>
       <td class="px-4 py-2">${train.arrivalTime}</td>
