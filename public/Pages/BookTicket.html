@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Book Your Train Ticket</title>
-    <link href="output.css" rel="stylesheet" />
+    <link href="/Css/output.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,10 +15,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
-    <link rel="icon" type="image/svg+xml" href="images/logo.svg" />
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg" />
   </head>
   <body
-    style="background-image: url('/public/images/bg.avif')"
+    style="background-image: url('/images/bg.avif')"
     class="bg-cover bg-center bg-fixed bg-no-repeat"
   >
     <div
@@ -29,7 +29,7 @@
       <div id="navbar" class="flex items-center p-3 justify-between">
         <!-- Logo -->
         <div id="logo" class="flex flex-center">
-          <img src="images/logo.svg" class="h-8 ml-2 md:h-12" />
+          <img src="/images/logo.svg" class="h-8 ml-2 md:h-12" />
           <h1
             class="text-2xl font-extrabold tracking-tight text-yellow-400 hidden md:block md:ml-8"
           >
@@ -44,7 +44,7 @@
           onclick="handleMenu()"
         >
           <img
-            src="images/bars-solid.svg"
+            src="/images/bars-solid.svg"
             alt="navigation"
             class="h-8 md:invisible"
           />
@@ -63,12 +63,12 @@
               >Services</a
             >
             <a
-              href="contact.html"
+              href="/Pages/contact.html"
               class="hover:text-stone-400 font-extrabold text-lg text-yellow-400"
               >Contact</a
             >
             <a
-              href="about.html"
+              href="/Pages/about.html"
               class="hover:text-stone-400 font-extrabold text-lg text-yellow-400"
               >About</a
             >
@@ -78,7 +78,7 @@
 
       <div
         id="menu"
-        style="background-image: url('/public/images/bg.avif')"
+        style="background-image: url('/images/bg.avif')"
         class="fixed bg-cover bg-center bg-fixed bg-no-repeat inset-0 p-3 md:hidden hidden"
       >
         <div
@@ -92,7 +92,7 @@
             class="p-2 md:hidden transition-all duration-200 active:scale-90"
             onclick="handleMenu()"
           >
-            <img src="images/cancel.png" alt="cancel" />
+            <img src="/images/cancel.png" alt="cancel" />
           </button>
         </div>
         <div class="mt-[16px]">
@@ -102,12 +102,12 @@
             >Home</a
           >
           <a
-            href="about.html"
+            href="/Pages/about.html"
             class="hover:bg-gray-800 text-yellow-400 text-lg font-extrabold m-3 p-3 block rounded-lg active:bg-gray-400"
             >About us</a
           >
           <a
-            href="contact.html"
+            href="/Pages/contact.html"
             class="hover:bg-gray-800 text-yellow-400 text-lg font-extrabold m-3 p-3 block rounded-lg active:bg-gray-400"
             >Contact us</a
           >
@@ -148,6 +148,7 @@
               type="text"
               placeholder="Enter Passenger Name"
               required
+              autocomplete="name"
               class="w-full border border-yellow-400 text-yellow-500 bg-gray-900 h-14 rounded-lg px-4 mb-4 focus:outline-none focus:ring-2 focus:ring-yellow-500"
             />
 
@@ -195,18 +196,18 @@
       <div class="h-30 w-60 mt-16 grid grid-cols-3 gap-x-2 justify-center">
         <div class="">
           <a href="https://x.com/Prabhatsingh415?t=BTGdSlxO0-aWVmkqh-wK4w&s=08 "
-            ><img src="images/X.png" alt="X"
+            ><img src="/images/X.png" alt="X"
           /></a>
         </div>
         <div class="">
           <a href="https://github.com/prabhatsingh415"
-            ><img src="images/github.png" alt="github"
+            ><img src="/images/github.png" alt="github"
           /></a>
         </div>
         <div class="">
           <a
             href="https://www.linkedin.com/in/prabhat-singh-rj415?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app "
-            ><img src="images/linkdin.png" alt="LinkedIn"
+            ><img src="/images/linkdin.png" alt="LinkedIn"
           /></a>
         </div>
       </div>
@@ -225,14 +226,14 @@
         <div class="flex flex-col gap-3">
           <!-- Login button -->
           <a
-            href="logIn.html"
+            href="/Pages/logIn.html"
             class="w-full bg-yellow-400 text-black font-semibold px-4 py-2 rounded-lg hover:bg-yellow-300 transition"
           >
             Login
           </a>
           <!-- Signup button -->
           <a
-            href="signUp.html"
+            href="/Pages/signUp.html"
             class="w-full bg-yellow-400 text-black font-semibold px-4 py-2 rounded-lg hover:bg-yellow-300 transition"
           >
             Signup
@@ -259,7 +260,7 @@
     </div>
 
     <!-- Scripts (at end so DOM elements exist) -->
-    <script src="header.js"></script>
-    <script src="BookTicket.js"></script>
+    <script src="/Javascript/header.js"></script>
+    <script src="/Javascript/BookTicket.js"></script>
   </body>
 </html>
