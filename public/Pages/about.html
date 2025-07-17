@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About This Project</title>
-    <link href="output.css" rel="stylesheet" />
+    <link href="/Css/output.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,10 +15,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
-    <link rel="icon" type="image/svg+xml" href="images/logo.svg" />
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg" />
   </head>
   <body
-    style="background-image: url('/public/images/bg.avif')"
+    style="background-image: url('/images/bg.avif')"
     class="bg-cover bg-center bg-fixed bg-no-repeat"
   >
     <div
@@ -28,7 +28,7 @@
     <header class="w-full md:p-2">
       <div id="navbar" class="flex items-center p-3 justify-between">
         <div id="logo" class="flex flex-center">
-          <img src="images/logo.svg" class="h-8 ml-2 md:h-12" />
+          <img src="/images/logo.svg" class="h-8 ml-2 md:h-12" />
           <h1
             class="text-2xl font-extrabold tracking-tight text-yellow-400 hidden md:block md:ml-8"
           >
@@ -42,7 +42,7 @@
           onclick="handleMenu()"
         >
           <img
-            src="images/bars-solid.svg"
+            src="/images/bars-solid.svg"
             alt="navigation"
             class="h-8 md:invisible"
           />
@@ -61,12 +61,12 @@
               >Services</a
             >
             <a
-              href="contact.html"
+              href="/Pages/contact.html"
               class="hover:text-stone-400 font-extrabold text-lg text-yellow-400"
               >Contact</a
             >
             <a
-              href="about.html"
+              href="/Pages/about.html"
               class="hover:text-stone-400 font-extrabold text-lg text-yellow-400"
               >About</a
             >
@@ -76,7 +76,7 @@
 
       <div
         id="menu"
-        style="background-image: url('/public/images/bg.avif')"
+        style="background-image: url('/images/bg.avif')"
         class="fixed bg-cover bg-center bg-fixed bg-no-repeat inset-0 p-3 md:hidden hidden"
       >
         <div
@@ -84,13 +84,13 @@
         ></div>
         <div class="flex justify-between">
           <div id="logo">
-            <img src="images/logo.svg" class="h-8 ml-2 md:h-12" />
+            <img src="/images/logo.svg" class="h-8 ml-2 md:h-12" />
           </div>
           <button
             class="p-2 md:hidden transition-all duration-200 active:scale-90"
             onclick="handleMenu()"
           >
-            <img src="images/cancel.png" alt="cancel" />
+            <img src="/images/cancel.png" alt="cancel" />
           </button>
         </div>
         <div class="mt-[16px]">
@@ -100,12 +100,12 @@
             >Home</a
           >
           <a
-            href="about.html"
+            href="/Pages/about.html"
             class="hover:bg-gray-800 text-yellow-400 text-lg font-extrabold m-3 p-3 block rounded-lg active:bg-gray-400"
             >About us</a
           >
           <a
-            href="contact.html"
+            href="/Pages/contact.html"
             class="hover:bg-gray-800 text-yellow-400 text-lg font-extrabold m-3 p-3 block rounded-lg active:bg-gray-400"
             >Contact us</a
           >
@@ -244,21 +244,21 @@
       <div class="h-30 w-60 mt-16 grid grid-cols-3 gap-x-2 justify-center">
         <div>
           <a href="https://x.com/Prabhatsingh415"
-            ><img src="images/X.png" alt="X"
+            ><img src="/images/X.png" alt="X"
           /></a>
         </div>
         <div>
           <a href="https://github.com/prabhatsingh415"
-            ><img src="images/github.png" alt="GitHub"
+            ><img src="/images/github.png" alt="GitHub"
           /></a>
         </div>
         <div>
           <a href="https://www.linkedin.com/in/prabhat-singh-rj415"
-            ><img src="images/linkdin.png" alt="LinkedIn"
+            ><img src="/images/linkdin.png" alt="LinkedIn"
           /></a>
         </div>
       </div>
     </footer>
-    <script src="header.js"></script>
+    <script src="/Javascript/header.js"></script>
   </body>
 </html>
