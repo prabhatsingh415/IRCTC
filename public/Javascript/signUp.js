@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
           btnOk.onclick = () => {
             hideModal();
             form.reset();
-            window.location.href = "BookTicket.html";
+            window.location.href = "/Pages/BookTicket.html";
           };
         } else {
           btnOk.onclick = hideModal; // restore default close behavior

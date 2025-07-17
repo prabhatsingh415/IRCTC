@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (data.message === "Login successful") {
         showModal("✅ Login successful!");
-        window.location.href = "index.html";
+        window.location.href = "/index.html";
       } else {
         showModal(data.message);
       }

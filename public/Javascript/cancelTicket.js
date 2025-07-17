@@ -2,7 +2,7 @@
 // Handles ticket cancellation via CancelTicketServlet
 console.log("file loaded: cancelTicket.js");
 
-const backendUrl = "https://irctc-ticket-booking-app.onrender.com/cancelTicket"; // Update with your backend URL
+const backendUrl = "https://irctc-ticket-booking-app.onrender.com/cancelTicket";
 
 // Select elements by ID
 const ticketInput = document.getElementById("ticketIdInput");
