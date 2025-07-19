@@ -7,9 +7,20 @@
       name="google-site-verification"
       content="M7a8MV3dlOJ5iSziJskDWyWz0uXWOE2D_-KMWTm9rws"
     />
+    <meta
+      name="description"
+      content="Book trains instantly, search, and manage your train tickets with ease—powered by IRCTC"
+    />
     <title>IRCTC</title>
+    <link
+      rel="preload"
+      href="/Css/output.css"
+      as="style"
+      onload="this.rel='stylesheet'"
+    />
+    <noscript><link rel="stylesheet" href="/Css/output.css" /></noscript>
+
     <link rel="icon" type="image/svg+xml" href="images/logo.svg" />
-    <link href="/Css/output.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -33,7 +44,7 @@
       <div id="navbar" class="flex items-center p-3 justify-between">
         <!-- Logo -->
         <div id="logo" class="flex flex-center">
-          <img src="/images/logo.svg" class="h-8 ml-2 md:h-12" />
+          <img src="/images/logo.svg" alt="logo" class="h-8 ml-2 md:h-12" />
           <h1
             class="text-2xl font-extrabold tracking-tight text-yellow-400 hidden md:block md:ml-8"
           >
@@ -90,7 +101,7 @@
         ></div>
         <div class="flex justify-between">
           <div id="logo">
-            <img src="/images/logo.svg" class="h-8 ml-2 md:h-12" />
+            <img src="/images/logo.svg" alt="logo" class="h-8 ml-2 md:h-12" />
           </div>
           <button
             class="p-2 md:hidden transition-all duration-200 active:scale-90"
@@ -239,5 +250,5 @@
       </div>
     </footer>
   </body>
-  <script src="/Javascript/header.js"></script>
+  <script src="/Javascript/header.js" defer></script>
 </html>
